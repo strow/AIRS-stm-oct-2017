@@ -1,0 +1,154 @@
+#+startup: beamer
+#+Options: toc:nil
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: Perspectives
+#+AUTHOR: L. Larrabee Strow and ASL Team
+#+BEAMER_HEADER: \date{\textit{\footnotesize August 28, 2017}}
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+#+BEGIN_EXPORT latex
+\addtobeamertemplate{block begin}{
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{3pt plus 2pt minus 2.5pt}
+  \setlength{\itemsep}{0pt plus 0pt minus 2pt}
+  \setlength{\partopsep}{2pt}
+}
+#+END_EXPORT
+
+
+
+* COMMENT Text Slide
+#+LaTeX: \vspace{-0.1in} \small
+Text
+* COMMENT Graph on Left, Bullet Right *and* Below
+#+LaTeX: \vspace{-0.3in}
+** Left Titel
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+#+LaTeX: \vspace{-0.1in} \small
+
+** Bullets title
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in} \small
+
+** 
+- Bottom bullets
+
+* COMMENT Two Graphs side-by-side
+#+LaTeX: \vspace{-0.3in}
+** Left Graph
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+
+** Right Graph
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.2in}
+[[./Figs/Png/]]
+
+** The Question
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+LaTeX: \vspace{-0.05in} \footnotesize
+- Are we only seeing global variability driven by by ocean SST changes (ENSO)
+- Or, is there evidence for warming independent of the ocean SST
+- Note persistent increase in high-T PDFs after 2015
+- PDFs combine surface T, cloud emitting T, and some water continum in the tropics
+- We believe cloud variability is too small to affect these PDFs
+
+* COMMENT One Big Graph
+** Graph Title (if needed)
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/]]
+Text after graph
+
+* COMMENT Sample Slide
+#+LaTeX: \vspace{-0.3in}
+** Left
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
+** Right
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
+* COMMENT overlays
+   - <1-> 
+   - <3-> item 2
+   - <2-> item 3
+
+  #+ATTR_BEAMER: :overlay <+->
+     - item 1
+     - item 2
+
+
+
+
+airs_vs_cris_allscan_tdiff_days.png
+
+% ILS diffs
+cris_spectrum.png
+airs_spectrum.png
+cris_airs_spectrum.png
+
+% Time diff
+airs_vs_cris_allscan_tdiff_days.png
+
+% SW PDFs, need fixed Q/a
+global_sw_counts_bt325plus.pdf
+global_sw_counts_bt325plus.pdf
+
+% LW PDFs
+land_and_ocean_allT.pdf
+% LW Ocean PDF details
+ocean_linear_pdf_and_diff.pdf
+ocean_percent_count_changes.pdf
+
+% SNO scene diff
+sno_vs_scene_900wn.pdf

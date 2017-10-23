@@ -1,0 +1,170 @@
+#+startup: beamer
+#+Options: toc:nil
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: BT 900 \wn Time Series vs MEI ENSO Index
+#+AUTHOR: L. Larrabee Strow and Howard Motteler
+#+BEAMER_HEADER: \date{\textit{\footnotesize August 28, 2017}}
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+#+BEGIN_EXPORT latex
+\addtobeamertemplate{block begin}{
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{3pt plus 2pt minus 2.5pt}
+  \setlength{\itemsep}{0pt plus 0pt minus 2pt}
+  \setlength{\partopsep}{2pt}
+}
+#+END_EXPORT
+
+* Background
+#+LaTeX: \vspace{-0.1in} \small
+We have been looking at AIRS B(T) 900 \wn global PDFs.  The last two years show significant surface warming.  Moreover, this warming diverges from the nominal responses to ENSO events.  Is this worth pursuing?  If so, it is timely since the basic warming in the last year with no ENSO event is already in the media.
+
+
+- The last two years of AIRS observations are out-of-family
+- Is this accelerated global warming?
+- Is it nuts to discuss this in the context of only two years out of fifteen?
+- I believe we have a data set that /cannot/ be questioned, esp. global coverage with no calibration issues /if/ we can show this is not due to cloud variability
+- Key slide is number 7.  This warming is not a respones to a El Niño?
+
+* Global 900 \wn PDF
+#+LaTeX: \vspace{-0.3in}
+
+** Global 900 \wn PDF
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/bt900_pdf_mean_in_time.pdf]]
+#+LaTeX: \vspace{-0.1in} \small
+
+** Data Properties
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in} \small
+- Global mean PDF for 900 \wn AIRS channel
+- ~15 year time series
+- All AIRS data (not just nadir), except:
+- Equal area binning 
+
+** 
+- Peak heavily weighted by tropical SST 
+- Summer land provides high T counts
+- Note "ledge" at 273K
+
+* BT 900 \wn PDFs and Anomalies (vs Time)
+#+LaTeX: \vspace{-0.3in}
+** PDF Time Series
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/bt900_pdf.png]]
+
+#+LaTeX: \vspace{-0.1in} \small
+
+** PDF Anomaly
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.2in}
+[[./Figs/Png/bt900_pdf_anom_smoothed.png]]
+
+** The Question
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+LaTeX: \vspace{-0.05in} \footnotesize
+- Are we only seeing global variability driven by by ocean SST changes (ENSO)
+- Or, is there evidence for warming independent of the ocean SST
+- Note persistent increase in high-T PDFs after 2015
+- PDFs combine surface T, cloud emitting T, and some water continum in the tropics
+- We believe cloud variability is too small to affect these PDFs
+
+
+* BT 900 \wn PDF Anomalies vs MEI Index
+** High BT Part of PDF
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/bt900_pdf_anom_highT_with_mei_index_v2.png]]
+Zoomed section of PDF anomaly, with MEI index plotted in cyan.
+
+* Average High-T PDF Anomalies (between black lines)
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.75\textwidth
+[[./Figs/Png/bt900_pdf_anom_smoothed_292_302K_lines.png]]
+Very rough.  Average PDF anomalies between 293K and 302K as indicated in the above figure. 
+
+Then compare to the MEI index.
+
+* High-T PDF vs MEI
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.7\textwidth
+[[./Figs/Pdf/pdf_highT_anom_minus_MEI.pdf]]
+
+** Correlations
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+LaTeX: \vspace{-0.1in} \footnotesize
+- 2012-2015: 0.75
+- 2012-2016: 0.73
+- 2012:(May 2017): 0.67
+
+* Scatter Diagram: High-T PDF vs MEI
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.7\textwidth
+[[./Figs/Pdf/mei_vs_highT_prob_with_regr_v2.pdf]]
+
+#+LaTeX: \vspace{-0.1in} \footnotesize
+- Strong El Niño in early 2015
+- By end of 2015 high-T PDFs are up, /and/
+- They stay high as El Niño subsides, not following previous behavior
+* To Do
+- Prove this isn't clouds
+- What percent of high-T PDF is clouds
+- Show that BT 900 trends match GISS land surface T record (nearly done)
+
+* COMMENT Sample Slide
+#+LaTeX: \vspace{-0.3in}
+** Left
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
+** Right
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
