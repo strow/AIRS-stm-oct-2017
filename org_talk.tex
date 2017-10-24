@@ -1,4 +1,4 @@
-% Created 2017-10-24 Tue 00:38
+% Created 2017-10-24 Tue 09:52
 % Intended LaTeX compiler: pdflatex
 \documentclass[10pt,t]{beamer}
 \usepackage[utf8]{inputenc}
@@ -17,8 +17,8 @@
 \usetheme{default}
 \author{L. Larrabee Strow, Sergio de-Souza Machado, Howard Motteler, Chris Hepplewhite, and Steven Buczkowski (UMBC)}
 \date{\today}
-\title{Perspectives on Building a Climate Record of AIRS+CrIS}
-\date{\textit{AIRS Science Team Meeting:  \footnotesize October 24, 2017}}
+\title{Perspectives on Building a Climate Record of AIRS+CrIS (and IASI)}
+\date{\textit{\footnotesize October 24, 2017}}
 \input beamer_setup
 \usetheme{metropolis}
 \metroset{titleformat title=allcaps}
@@ -43,9 +43,9 @@
 }
 
 \section{Introduction}
-\label{sec:org047a7d5}
+\label{sec:orgbb7a7d4}
 
-\begin{frame}[label={sec:org648c8cc}]{Strategies for connecting AIRS and CrIS(s)}
+\begin{frame}[label={sec:org81af54b}]{Strategies for connecting AIRS and CrIS(s)}
 \begin{block}{Outline}
 \begin{itemize}
 \item General Approach
@@ -67,10 +67,12 @@
 \end{frame}
 
 
-\section{General Approach}
-\label{sec:orga4ad907}
+\end{document}
 
-\begin{frame}[label={sec:orga95dadf}]{Existing Approach}
+\section{General Approach}
+\label{sec:orgea638fa}
+
+\begin{frame}[label={sec:orgc00f165}]{Existing Approach}
 \begin{itemize}
 \item AIRS L1b ---> Retrieval ---> L3 ---> AIRS Climate?
 \item CrIS L1b ---> Retrieval ---> L3 ---> CrIS Climate?
@@ -87,7 +89,7 @@
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org8c8ad53}]{Proposed Strategy}
+\begin{frame}[label={sec:org2a7b389}]{Proposed Strategy}
 \begin{enumerate}
 \item AIRS L1b ---> AIRS L1c ---> AIRS2CrIS (AIRS w/ CrIS ILS)
 \item Adjust AIRS2CrIS radiometric calibration to CrIS calibration
@@ -97,33 +99,33 @@
 ILS conversion is very easy and very accurate. See Howard Mottelers talk: "AIRS deconvolution and the translation of AIRS to CrIS radiances" (3:20 PM Thursday)
 
 \normalsize
-\begin{block}{Benefits}
+\begin{block}{Result}
 \begin{itemize}
 \item A uniform radiance time series "cL1d" (c is for combined)
 \item Provides a radiance climatology.  (Rad L3 ---> Geophysical L3).
 \item \emph{Allows radiance offsets to be applied on a channel-by-channel basis for L2 retrievals}.  What is the alternative?
 \item Permits use of a single forward model, removing possible paramaterization differences in fast RTAs
-\item Easier system to manage, more uniformity
+\item Much easier to manage test
 \end{itemize}
 \end{block}
 \end{frame}
 
 \section{Motivation}
-\label{sec:orgbdcb7cf}
+\label{sec:org2bb8324}
 
-\begin{frame}[label={sec:orgea3a5c0}]{AIRS 14-Year Global L1c BT Trends (Unc: \(\sim\) 0.003K/year)}
+\begin{frame}[label={sec:org4d2acbe}]{AIRS 14-Year Global L1c BT Trends (Unc: \(\sim\) 0.003K/year)}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./Figs/Pdf/global_dbt_l1c_allchans_showfake.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org9dc0322}]{Effects of Greenhouse Gases on 14-Year Trends}
+\begin{frame}[label={sec:orgf27fd21}]{Effects of Greenhouse Gases on 14-Year Trends}
 \vspace{-0.1in}
 Long term greenhouse gas trends can be removed using in-situ data.
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/global_dbt_l1c_withco2n2och4.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgda20d96}]{14-Year Trends after Removal of Greenhouse Gases}
+\begin{frame}[label={sec:org0b60ccc}]{14-Year Trends after Removal of Greenhouse Gases}
 \vspace{-0.1in}
 Surface and LW Trop. Atmospheric Trends \(\sim\) +0.01K/year
 \begin{center}
@@ -133,16 +135,16 @@ Surface and LW Trop. Atmospheric Trends \(\sim\) +0.01K/year
 \small
 (SW adjusted using clear-scene SST comparisons.)
 \end{frame}
-\begin{frame}[label={sec:orgaa2b8d8}]{14-Year Trends Compared to ERA}
+\begin{frame}[label={sec:orgd0cebe1}]{14-Year Trends Compared to ERA}
 \vspace{-0.1in}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/global_dbt_l1c_with_era_cld_and_clr.pdf}
 \end{center}
 \vspace{-0.1in}
 \small
-ERA cloud trends too large.  ERA cannot tune upper strat for \cd variability??  Or, is upper strat \cd different?
+ERA cloud trends too large.  ERA cannot tune upper strat for \cd variability??  Or, are upper strat \cd different?
 \end{frame}
-\begin{frame}[label={sec:org77b2448}]{Will Relative Humidity Change With Global Warming?}
+\begin{frame}[label={sec:org2a2a5a7}]{Will Relative Humidity Change With Global Warming?}
 \vspace{-0.1in}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/global_dbt_l1c_minus_greenhouse_gases_swadjust_vs_era_water_RH_noera.pdf}
@@ -152,7 +154,7 @@ ERA cloud trends too large.  ERA cannot tune upper strat for \cd variability??  
 This is a key climate question suitable for AIRS + CrIS
 \end{frame}
 
-\begin{frame}[label={sec:org5e53653}]{GISS vs AIRS 900 \wn B(T) Anomalies}
+\begin{frame}[label={sec:orga2d8767}]{GISS vs AIRS 900 \wn B(T) Anomalies}
 \vspace{-0.1in}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/giss_sfct_vs_airs_900cmbt.pdf}
@@ -162,64 +164,61 @@ This is a key climate question suitable for AIRS + CrIS
 Changes in clouds are small (can be proven over ocean) so window channels track surface stations.  
 \end{frame}
 
-%---------------------------------------------------------------------------
-\begin{frame}{Recent Warming Not Related to ENSO}
+\begin{frame}[label={sec:org9d4d583}]{Recent Warming Not Related to ENSO}
+\vspace{-0.3in}
+\footnotesize
+\begin{columns}
+\begin{column}{0.50\columnwidth}
+\begin{block}{Global 900 \wn PDF}
+\vspace{-0.1in}
+\begin{center}
+\includegraphics[width=.9\linewidth]{./Figs_mei/Pdf/bt900_pdf_mean_in_time.pdf}
+\end{center}
 
-  \begin{columns}
-    \begin{column}[T]{0.50\textwidth}
-      \vspace{-0.2in}
-      \begin{block}{\footnotesize Global 900 \wn PDF}
-        \vspace{-0.1in}
-        \begin{center}
-          \includegraphics[width=0.80\linewidth]{./Figs_mei/Pdf/bt900_pdf_mean_in_time.pdf}
-        \end{center}
-      \end{block}
-    \end{column}
+\vspace{-0.3in}
+\footnotesize
+\end{block}
+\end{column}
+\begin{column}{0.50\columnwidth}
+\begin{block}{Warmer Scene PDF Anomalies}
+\vspace{-0.2in}
+\begin{center}
+\includegraphics[width=.9\linewidth]{./Figs_mei/Png/bt900_pdf_anom_highT_with_mei_index.png}
+\end{center}
 
-    \begin{column}[T]{0.50\textwidth}
-        \vspace{-0.2in}
-      \begin{block}{\footnotesize Warmer Scene PDF Anomalies}
-        \vspace{-0.1in}
-        \begin{center}
-          \includegraphics[width=0.80\linewidth]{./Figs_mei/Png/bt900_pdf_anom_highT_with_mei_index.png}
-        \end{center}
-      \end{block}
-    \end{column}
-  \end{columns}
+\vspace{-1.5in}
+\footnotesize
+\end{block}
+\end{column}
+\begin{column}{0.50\columnwidth}
+\begin{block}{Warming Unrelated to ENSO (MEI index)?}
+\vspace{-0.1in}
+\begin{center}
+\includegraphics[width=.9\linewidth]{./Figs_mei/Pdf/bt900_pdf_anom_highT_with_mei_index_v2_samemarker_but_2017.pdf}
+\end{center}
 
-  \begin{columns}
-    \begin{column}{0.50\textwidth}
-        \vspace{-0.2in}
-      \begin{block}{\footnotesize Warming vs ENSO (MEI index)}
-        \vspace{-0.1in}
-        \begin{center}
-%          \includegraphics[width=0.80\linewidth]{./Figs_mei/Pdf/bt900_pdf_anom_highT_with_mei_index_v2_samemarker_but_2017.pdf}
-          \includegraphics[width=0.85\linewidth]{./Figs_mei/Pdf/mei_vs_highT_prob_with_regr_v2.pdf}
-        \end{center}
-      \end{block}
-    \end{column}
-
-    \begin{column}{0.50\textwidth}
-        \vspace{-0.1in}
-        \begin{block}{}
-        \small
-        \begin{itemize}
-        \item This appoach minimizes clouds (more is possible)
-        \item Provides simple analysis with high certainties
-        \end{itemize}
-      \end{block}
-    \end{column}
-  \end{columns}
-
+\vspace{-1.5in}
+\footnotesize
+\small
+\end{block}
+\end{column}
+\begin{column}{0.50\columnwidth}
+\begin{block}{}
+\begin{itemize}
+\item This appoach minimizes clouds (more is possible)
+\item Provides simple analysis with high certainties
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
 \end{frame}
-%---------------------------------------------------------------------------
 
 
 
 \section{Differences and Similarities Between AIRS and CrIS Radiances}
-\label{sec:org4822a7d}
+\label{sec:org667636a}
 
-\begin{frame}[label={sec:org9f1eae7}]{Intercalibration Issues}
+\begin{frame}[label={sec:orge14795a}]{Intercalibration Issues}
 \begin{block}{Approaches}
 \begin{itemize}
 \item SNOs
@@ -237,7 +236,7 @@ Changes in clouds are small (can be proven over ocean) so window channels track 
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org62cd722}]{Full Sampling Time Differences between AIRS and SNPP-CrIS}
+\begin{frame}[label={sec:org301a01d}]{Full Sampling Time Differences between AIRS and SNPP-CrIS}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Png/airs_vs_cris_allscan_tdiff_days.png}
 \end{center}
@@ -245,7 +244,7 @@ Changes in clouds are small (can be proven over ocean) so window channels track 
 Mean global time difference is zero.  Zonal averages near zero.  Importance for retrieval products is uncertain, likely small?
 \end{frame}
 
-\begin{frame}[label={sec:orga468c42}]{AIRS vs CrIS 5-year rates: Both are Stable}
+\begin{frame}[label={sec:org07530cb}]{AIRS vs CrIS 5-year rates: Both are Stable}
 \vspace{-0.1in}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/airs_vs_cris_btrate_global.pdf}
@@ -253,7 +252,7 @@ Mean global time difference is zero.  Zonal averages near zero.  Importance for 
 Differences are far below statistical uncertainties.  Example of AIRS2CrIS.
 \end{frame}
 
-\begin{frame}[label={sec:orga10a827}]{SNO differences by AIRS Module (1-Year of SNOs)}
+\begin{frame}[label={sec:org1ece05f}]{SNO differences by AIRS Module (1-Year of SNOs)}
 \vspace{-0.1in}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/lls_cris_minus_airs.pdf}
@@ -263,14 +262,14 @@ Differences are far below statistical uncertainties.  Example of AIRS2CrIS.
 AIRS2CrIS shown. Statistical errors very small.  Small scale variability likely AIRS ILS uncertainties!
 \end{frame}
 
-\begin{frame}[label={sec:orgdf19c22}]{Use SNOs to Improve AIRS Longwave ILS?}
+\begin{frame}[label={sec:org22fa95a}]{Use SNOs to Improve AIRS Longwave ILS?}
 \vspace{-0.15in}
 \begin{center}
 \includegraphics[width=0.6\linewidth]{./center-width-rms-err.png}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org69bb52a}]{Longwave Count Histograms (700 Million per Year)}
+\begin{frame}[label={sec:org905af09}]{Longwave Count Histograms (700 Million per Year)}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./Figs/Pdf/land_and_ocean_allT.pdf}
 \end{center}
@@ -279,7 +278,7 @@ AIRS2CrIS shown. Statistical errors very small.  Small scale variability likely 
 Not land counts only agree with change in CrIS Q/C
 \end{frame}
 
-\begin{frame}[label={sec:orgaa004ae}]{Longwave Ocean Count Differences (due to spatial diffs?)}
+\begin{frame}[label={sec:org6d856e4}]{Longwave Ocean Count Differences (due to spatial diffs?)}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./Figs/Pdf/ocean_linear_pdf_and_diff.pdf}
 \end{center}
@@ -288,13 +287,13 @@ Not land counts only agree with change in CrIS Q/C
 AIRS FOV is slightly smeared relative to the CrIS FOV.
 \end{frame}
 
-\begin{frame}[label={sec:orgf21917b}]{Longwave Counts Vary More with Year than \\Between Instruments}
+\begin{frame}[label={sec:orgb18ab6b}]{Longwave Counts Vary More with Year than Between Instruments}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/ocean_percent_count_changes.pdf}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org86b7c90}]{Hot Scene Shortwave Histograms (solar reflection off clouds)}
+\begin{frame}[label={sec:org3204d1c}]{Hot Scene Shortwave Histograms (solar reflection off clouds)}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./Figs/Pdf/global_sw_counts_bt325plus.pdf}
 \end{center}
@@ -304,18 +303,18 @@ CrIS stopped far below max before change in CrIS Q/C.  This is a remarkable
 result!
 \end{frame}
 
-\begin{frame}[label={sec:org1dc5792}]{Do AIRS2CrIS and CrIS Have Simiar Count Spectra?}
+\begin{frame}[label={sec:orgd6b4b3e}]{Do AIRS2CrIS and CrIS Have Simiar Count Spectra?}
 \small Random Sampled AIRS L1c and AIRS2CrIS for 1 Day
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./Figs/Pdf/jun4_2015_airs_675wn_global_counts.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org2841d2a}]{Add Noise to AIRS (L1b/c radiances are rounded)}
+\begin{frame}[label={sec:org60f2dfc}]{Add Noise to AIRS (L1b/c radiances are rounded)}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{./Figs/Pdf/jun4_2015_airs_675wn_global_counts_w_airsnoise_and_cris.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgc445909}]{Now Compare CrIS counts to AIRS2CrIS}
+\begin{frame}[label={sec:orgc3f7461}]{Now Compare CrIS counts to AIRS2CrIS}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{./Figs/Pdf/jun4_2015_airs_675wn_global_counts_w_airsnoise_and_cris_a2c_no_airs.pdf}
 \end{center}
@@ -324,7 +323,7 @@ result!
 Very similar, note how sharp drop in AIRS hot wing now agrees with CrIS.
 \end{frame}
 
-\begin{frame}[label={sec:orgb04bdc0}]{Conclusions}
+\begin{frame}[label={sec:org7fbd619}]{Conclusions}
 \vspace{-0.10in}
 \small
 \begin{block}{UMBC: Next Steps}

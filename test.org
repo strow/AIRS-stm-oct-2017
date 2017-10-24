@@ -1,0 +1,86 @@
+#+startup: beamer
+#+Options: toc:nil H:2
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: Perspectives on Building a Climate Record of AIRS+CrIS (and IASI)
+#+AUTHOR: L. Larrabee Strow, Sergio de-Souza Machado, Howard Motteler, Chris Hepplewhite, and Steven Buczkowski (UMBC)
+#+BEAMER_HEADER: \date{\textit{\footnotesize October 24, 2017}}
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+#+BEGIN_EXPORT latex
+\addtobeamertemplate{block begin}{
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{3pt plus 2pt minus 2.5pt}
+  \setlength{\itemsep}{0pt plus 0pt minus 2pt}
+  \setlength{\partopsep}{2pt}
+}
+#+END_EXPORT
+
+* Introduction
+
+** Strategies for connecting AIRS and CrIS(s)
+*** Outline
+ - General Approach
+ - Motivation and Requirements
+ - Sensor Differences and Mitigation
+*** Themes of This Talk
+  - Sensors stable to  <0.003K/year
+  - They provide an excellent climate monitoring platform (now 15+ years).  Natural use of these data by users?
+  - How will we 
+    1. Maintain stability across instruments
+    2. Provide users with error estimates based on sensor measurement accuracies
+
+
+** Recent Warming Not Related to ENSO
+#+LaTeX: \vspace{-0.3in}
+#+LaTeX: \tiny
+*** Global 900 \wn PDF
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.50
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs_mei/Pdf/bt900_pdf_mean_in_time.pdf]]
+
+#+LaTeX: \vspace{-0.3in}
+*** Warmer Scene PDF Anomalies
+:PROPERTIES:
+:BEAMER_col: 0.50
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.2in}
+[[./Figs_mei/Png/bt900_pdf_anom_highT_with_mei_index.png]]
+
+
+*** Imaginary block                                  :B_ignoreheading:
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+#+LaTeX: \footnotesize
+*** Warming Unrelated to ENSO (MEI index)?
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.50
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs_mei/Pdf/bt900_pdf_anom_highT_with_mei_index_v2_samemarker_but_2017.pdf]]
+
+#+LaTeX: \footnotesize
+#+LaTeX: \small
+*** 
+:PROPERTIES:
+:BEAMER_col: 0.50
+:BEAMER_env: block
+:END:
+- This appoach minimizes clouds (more is possible)
+- Provides simple analysis with high certainties
+
+
+** What is this
