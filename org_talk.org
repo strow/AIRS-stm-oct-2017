@@ -1,0 +1,361 @@
+#+startup: beamer
+#+Options: toc:nil H:2
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: Perspectives on Building a Climate Record of AIRS+CrIS (and IASI)
+#+AUTHOR: L. Larrabee Strow, Sergio de-Souza Machado, Howard Motteler, Chris Hepplewhite, and Steven Buczkowski (UMBC)
+#+BEAMER_HEADER: \date{\textit{\footnotesize October 24, 2017}}
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+#+BEGIN_EXPORT latex
+\addtobeamertemplate{block begin}{
+  \setlength{\parsep}{0pt}
+  \setlength{\topsep}{3pt plus 2pt minus 2.5pt}
+  \setlength{\itemsep}{0pt plus 0pt minus 2pt}
+  \setlength{\partopsep}{2pt}
+}
+#+END_EXPORT
+
+* Introduction
+
+** Strategies for connecting AIRS and CrIS(s)
+*** Outline
+ - General Approach
+ - Motivation and Requirements
+ - Sensor Differences and Mitigation
+*** Themes of This Talk
+  - Sensors stable to  <0.003K/year
+  - They provide an excellent climate monitoring platform (now 15+ years).  Natural use of these data by users?
+  - How will we 
+    1. Maintain stability across instruments
+    2. Provide users with error estimates based on sensor measurement accuracies
+
+
+* General Approach
+
+** Existing Approach 
+- AIRS L1b ---> Retrieval ---> L3 ---> AIRS Climate?
+- CrIS L1b ---> Retrieval ---> L3 ---> CrIS Climate?
+- Combined Time series: (AIRS Climate) + (CrIS Climate)?
+
+*** AIRS/CrIS Retrieval Differences:
+- Forward models (RTA).  Hard to make them "identical".
+- Instrument Line Shapes (width, centroids), channel sensitivities, noise, channel selection
+- Spatial response (Aumann Sept. 2016 STM: 3x3 CrIS has about 8% more variability, better Cloud-clearing?)
+- Radiometric offsets: in the 0.1-0.25K range
+
+** Proposed Strategy
+
+1. AIRS L1b ---> AIRS L1c ---> AIRS2CrIS (AIRS w/ CrIS ILS)
+2. Adjust AIRS2CrIS radiometric calibration to CrIS calibration
+3. Add noise to individual scenes (will vary between CrIS and AIRS2CrIS depending on wavenumber)
+#+LaTeX: \footnotesize
+ILS conversion is very easy and very accurate. See Howard Mottelers talk: "AIRS deconvolution and the translation of AIRS to CrIS radiances" (3:20 PM Thursday)
+
+#+LaTeX: \normalsize
+*** Result
+- A uniform radiance time series "cL1d" (c is for combined)
+- Provides a radiance climatology.  (Rad L3 ---> Geophysical L3).
+- /Allows radiance offsets to be applied on a channel-by-channel basis for L2 retrievals/.  What is the alternative?
+- Permits use of a single forward model, removing possible paramaterization differences in fast RTAs
+- Much easier to manage test
+
+* Motivation
+
+** AIRS 14-Year Global L1c BT Trends (Unc: \sim{} 0.003K/year)
+[[./Figs/Pdf/global_dbt_l1c_allchans_showfake.pdf]]
+** Effects of Greenhouse Gases on 14-Year Trends
+#+LaTeX: \vspace{-0.1in}
+Long term greenhouse gas trends can be removed using in-situ data.
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/global_dbt_l1c_withco2n2och4.pdf]]
+**  14-Year Trends after Removal of Greenhouse Gases
+#+LaTeX: \vspace{-0.1in}
+Surface and LW Trop. Atmospheric Trends \sim{} +0.01K/year
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/global_dbt_l1c_minus_greenhouse_gases_swadjust.pdf]]
+#+LaTeX: \vspace{-0.1in}
+#+LaTeX: \small
+(SW adjusted using clear-scene SST comparisons.)
+** 14-Year Trends Compared to ERA
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/global_dbt_l1c_with_era_cld_and_clr.pdf]]
+#+LaTeX: \vspace{-0.1in}
+#+LaTeX: \small
+ERA cloud trends too large.  ERA cannot tune upper strat for \cd variability??  Or, are upper strat \cd different?
+** Will Relative Humidity Change With Global Warming?
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/global_dbt_l1c_minus_greenhouse_gases_swadjust_vs_era_water_RH_noera.pdf]]
+#+LaTeX: \vspace{-0.1in}
+#+LaTeX: \small
+This is a key climate question suitable for AIRS + CrIS
+
+** GISS vs AIRS 900 \wn B(T) Anomalies
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/giss_sfct_vs_airs_900cmbt.pdf]]
+#+LaTeX: \vspace{-0.05in}
+#+LaTeX: \small
+Changes in clouds are small (can be proven over ocean) so window channels track surface stations.  
+
+** Recent Warming Not Related to ENSO
+#+LaTeX: \vspace{-0.3in}
+#+LaTeX: \footnotesize
+*** Global 900 \wn PDF
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.50
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs_mei/Pdf/bt900_pdf_mean_in_time.pdf]]
+
+#+LaTeX: \vspace{-0.3in}
+#+LaTeX: \footnotesize
+*** Warmer Scene PDF Anomalies
+:PROPERTIES:
+:BEAMER_col: 0.50
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.2in}
+[[./Figs_mei/Png/bt900_pdf_anom_highT_with_mei_index.png]]
+
+#+LaTeX: \vspace{-1.5in}
+#+LaTeX: \footnotesize
+*** Warming Unrelated to ENSO (MEI index)?
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.50
+:END:
+#+ATTR_LATEX: :width 0.8\textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs_mei/Pdf/bt900_pdf_anom_highT_with_mei_index_v2_samemarker_but_2017.pdf]]
+
+#+LaTeX: \vspace{-1.5in}
+#+LaTeX: \footnotesize
+#+LaTeX: \small
+*** 
+:PROPERTIES:
+:BEAMER_col: 0.50
+:BEAMER_env: block
+:END:
+- This appoach minimizes clouds (more is possible)
+- Provides simple analysis with high certainties
+
+
+
+* Differences and Similarities Between AIRS and CrIS Radiances
+
+** Intercalibration Issues
+*** Approaches
+ - SNOs
+ - Statistical comparisons of radiances
+
+*** Previous Issues
+ - UMBC and JPL used "AIRXBCAL" like data: random nadir subsets
+ - These do not provide good enough sampling for statistical intercomparisons (mostly due to time differences in scene sampling)
+ - /This Work:/ CrIS Q/A based on imaginary radiance values too severe, we only limit min radiance (3 values for LW/MW/SW)
+ - /This Work:/ Full all-scan sampling (every scene, yearly statistics!)
+
+** Full Sampling Time Differences between AIRS and SNPP-CrIS
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Png/airs_vs_cris_allscan_tdiff_days.png]]
+
+Mean global time difference is zero.  Zonal averages near zero.  Importance for retrieval products is uncertain, likely small?
+
+** COMMENT ILS Differences
+#+ATTR_LATEX: :width 0.6\linewidth 
+[[./Figs/Pdf/airs_spectrum.pdf]]
+#+ATTR_LATEX: :width 0.6\linewidth 
+[[./Figs/Pdf/cris_spectrum.pdf]]
+#+ATTR_LATEX: :width 0.6\linewidth 
+[[./Figs/Pdf/cris_airs_spectrum.pdf]]
+#+LaTeX: \small
+- See Howard Mottelers talk: "AIRS deconvolution and the translation of AIRS to CrIS radiances" (3:20 PM Thursday)
+- This is a solved problem, associated errors far below other issues
+
+** AIRS vs CrIS 5-year rates: Both are Stable
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/airs_vs_cris_btrate_global.pdf]]
+Differences are far below statistical uncertainties.  Example of AIRS2CrIS.
+
+** SNO differences by AIRS Module (1-Year of SNOs)
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/lls_cris_minus_airs.pdf]]
+#+LaTeX: \vspace{-0.05in}
+\small
+AIRS2CrIS shown. Statistical errors very small.  Small scale variability likely AIRS ILS uncertainties!
+
+** Use SNOs to Improve AIRS Longwave ILS?
+#+LaTeX: \vspace{-0.15in}
+#+ATTR_LATEX: :width 0.6\linewidth 
+[[./center-width-rms-err.png]]
+
+** Longwave Count Histograms (700 Million per Year)
+#+ATTR_LATEX: :width 0.7\linewidth 
+[[./Figs/Pdf/land_and_ocean_allT.pdf]]
+#+LaTeX: \vspace{-0.15in}
+#+LaTeX: \small
+Not land counts only agree with change in CrIS Q/C
+
+** Longwave Ocean Count Differences (due to spatial diffs?)
+#+ATTR_LATEX: :width 0.7\linewidth 
+[[./Figs/Pdf/ocean_linear_pdf_and_diff.pdf]]
+#+LaTeX: \vspace{-0.15in}
+#+LaTeX: \small
+AIRS FOV is slightly smeared relative to the CrIS FOV.
+
+** Longwave Counts Vary More with Year than Between Instruments
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/ocean_percent_count_changes.pdf]]
+
+** Hot Scene Shortwave Histograms (solar reflection off clouds) 
+#+ATTR_LATEX: :width 0.7\linewidth 
+[[./Figs/Pdf/global_sw_counts_bt325plus.pdf]]
+#+LaTeX: \vspace{-0.05in}
+#+LaTeX: \small
+CrIS stopped far below max before change in CrIS Q/C.  This is a remarkable
+result!
+
+** Do AIRS2CrIS and CrIS Have Simiar Count Spectra?
+\small Random Sampled AIRS L1c and AIRS2CrIS for 1 Day
+#+ATTR_LATEX: :width 0.7\linewidth 
+[[./Figs/Pdf/jun4_2015_airs_675wn_global_counts.pdf]]
+** Add Noise to AIRS (L1b/c radiances are rounded)
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Pdf/jun4_2015_airs_675wn_global_counts_w_airsnoise_and_cris.pdf]]
+** Now Compare CrIS counts to AIRS2CrIS
+#+ATTR_LATEX: :width 0.7\linewidth 
+[[./Figs/Pdf/jun4_2015_airs_675wn_global_counts_w_airsnoise_and_cris_a2c_no_airs.pdf]]
+#+LaTeX: \vspace{-0.05in}
+#+LaTeX: \small
+Very similar, note how sharp drop in AIRS hot wing now agrees with CrIS.
+
+** Conclusions
+
+#+LaTeX: \vspace{-0.10in}
+\small
+*** UMBC: Next Steps
+- Test climate level trends and anomalies between AIRS and AIRS2CrIS
+  - Create 10-year AIRS T/Q trends based on radiance trends
+  - Create 5-year AIRS + 5-Year CrIS radiance product and then compare T/Q trends from this product to the AIRS-only product
+- Spectral calibration of AIRS L1c so variable \nu RTA is not needed
+
+*** Sounder SIPS and Science Team
+- Consider using AIRS2CrIS?
+- Should simplify retrieval system, not unimportant in time of diminishing funds
+- Will allow us to produce a combined, homogenous radiance record for future research
+- AIRS2CrIS is the only way I know to easily remove radiometric calibration differences between AIRS and CrIS.  We should not just "eat" this difference and plow ahead.
+
+
+
+* COMMENT Text Slide
+#+LaTeX: \vspace{-0.1in} \small
+Text
+* COMMENT Graph on Left, Bullet Right *and* Below
+#+LaTeX: \vspace{-0.3in}
+*** Left Titel
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+#+LaTeX: \vspace{-0.1in} \small
+
+*** Bullets title
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in} \small
+
+*** 
+- Bottom bullets
+
+* COMMENT Two Graphs side-by-side
+#+LaTeX: \vspace{-0.3in}
+** Left Graph
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+
+** Right Graph
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.2in}
+[[./Figs/Png/]]
+
+** The Question
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+LaTeX: \vspace{-0.05in} \footnotesize
+- Are we only seeing global variability driven by by ocean SST changes (ENSO)
+- Or, is there evidence for warming independent of the ocean SST
+- Note persistent increase in high-T PDFs after 2015
+- PDFs combine surface T, cloud emitting T, and some water continum in the tropics
+- We believe cloud variability is too small to affect these PDFs
+
+* COMMENT One Big Graph
+** Graph Title (if needed)
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Png/]]
+Text after graph
+
+* COMMENT Sample Slide
+#+LaTeX: \vspace{-0.3in}
+** Left
+:PROPERTIES:
+:BEAMER_env: block
+:BEAMER_col: 0.55
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
+** Right
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \textwidth
+#+LaTeX: \vspace{-0.1in}
+[[./Figs/Pdf/]]
+
+#+LaTeX: \vspace{-0.1in} \small
+- 
+- 
+
+
+* COMMENT AIRS/CrIS SNOs
+#+ATTR_LATEX: :width 0.8\linewidth 
+[[./Figs/Png/sno_vs_scene_900wn.png]]
+
