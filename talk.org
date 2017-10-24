@@ -27,11 +27,41 @@
  - Motivation and Requirements
  - Sensor Differences and Mitigation
 *** Themes of This Talk
-  - Sensors stable to  $<$0.003K/year
-  - They provide an excellent climate monitoring platform (now 15+ years)
+  - Sensors stable to  <0.003K/year
+  - They provide an excellent climate monitoring platform (now 15+ years).  Natural use of these data by users?
   - How will we 
     1. Maintain stability across instruments
     2. Provide users with error estimates based on sensor measurement accuracies
+
+
+* General Approach
+
+** Existing Approach 
+- AIRS L1b ---> Retrieval ---> L3 ---> AIRS Climate?
+- CrIS L1b ---> Retrieval ---> L3 ---> CrIS Climate?
+- Combined Time series: (AIRS Climate) + (CrIS Climate)?
+
+*** AIRS/CrIS Retrieval Differences:
+- Forward models (RTA).  Hard to make them "identical".
+- Instrument Line Shapes (width, centroids), channel sensitivities, noise, channel selection
+- Spatial response (Aumann Sept. 2016 STM: 3x3 CrIS has about 8% more variability, better Cloud-clearing?)
+- Radiometric offsets: in the 0.1-0.25K range
+
+** Proposed Strategy
+
+1. AIRS L1b ---> AIRS L1c ---> AIRS2CrIS (AIRS w/ CrIS ILS)
+2. Adjust AIRS2CrIS radiometric calibration to CrIS calibration
+3. Add noise to individual scenes (will vary between CrIS and AIRS2CrIS depending on wavenumber)
+#+LaTeX: \small
+ILS conversion is very easy and very accurate.
+
+#+LaTeX: \normalsize
+*** Result
+- A uniform radiance time series "cL1d" (c is for combined)
+- Provides a radiance climatology.  (Rad L3 ---> Geophysical L3).
+- /Allows radiance offsets to be applied on a channel-by-channel basis for L2 retrievals/.  What is the alternative?
+- Permits use of a single forward model, removing possible paramaterization differences in fast RTAs
+- Much easier to manage test
 
 * Motivation
 
@@ -51,22 +81,32 @@ Surface and LW Trop. Atmospheric Trends \sim{} +0.01K/year
 #+LaTeX: \small
 (SW adjusted using clear-scene SST comparisons.)
 ** 14-Year Trends Compared to ERA
+#+LaTeX: \vspace{-0.1in}
 #+ATTR_LATEX: :width 0.8\linewidth 
-[[./Figs/Pdf/global_dbt_l1c_minus_greenhouse_gases_swadjust_vs_era_ellipses.pdf]]
+[[./Figs/Pdf/global_dbt_l1c_with_era_cld_and_clr.pdf]]
+#+LaTeX: \vspace{-0.1in}
+#+LaTeX: \small
+ERA cloud trends too large.  ERA cannot tune upper strat for \cd variability??  Or, are upper strat \cd different?
 ** Will Relative Humidity Change With Global Warming?
-#+LaTeX: \vspace{-0.2in}
-#+ATTR_LATEX: :width 0.7\linewidth 
+#+LaTeX: \vspace{-0.1in}
+#+ATTR_LATEX: :width 0.8\linewidth 
 [[./Figs/Pdf/global_dbt_l1c_minus_greenhouse_gases_swadjust_vs_era_water_RH_noera.pdf]]
-This is a key question AIRS + CrIS can start to answer
+#+LaTeX: \vspace{-0.1in}
+#+LaTeX: \small
+This is a key climate question suitable for AIRS + CrIS
 
 ** GISS vs AIRS 900 \wn B(T) Anomalies
+#+LaTeX: \vspace{-0.1in}
 #+ATTR_LATEX: :width 0.8\linewidth 
 [[./Figs/Pdf/giss_sfct_vs_airs_900cmbt.pdf]]
+#+LaTeX: \vspace{-0.05in}
+#+LaTeX: \small
+Changes in clouds are small (can be proven over ocean) so window channels track surface stations.  
 
 ** Recent Warming Not Related to ENSO
 #+LaTeX: \vspace{-0.3in}
-#+LaTeX: \small
-*** Left Graph
+#+LaTeX: \footnotesize
+*** Global 900 \wn PDF
 :PROPERTIES:
 :BEAMER_env: block
 :BEAMER_col: 0.50
@@ -76,8 +116,8 @@ This is a key question AIRS + CrIS can start to answer
 [[./Figs_mei/Pdf/bt900_pdf_mean_in_time.pdf]]
 
 #+LaTeX: \vspace{-0.3in}
-#+LaTeX: \small
-*** Right Graph
+#+LaTeX: \footnotesize
+*** Warmer Scene PDF Anomalies
 :PROPERTIES:
 :BEAMER_col: 0.50
 :BEAMER_env: block
@@ -87,8 +127,8 @@ This is a key question AIRS + CrIS can start to answer
 [[./Figs_mei/Png/bt900_pdf_anom_highT_with_mei_index.png]]
 
 #+LaTeX: \vspace{-1.5in}
-#+LaTeX: \small
-*** Left Graph
+#+LaTeX: \footnotesize
+*** Warming Unrelated to ENSO (MEI index)?
 :PROPERTIES:
 :BEAMER_env: block
 :BEAMER_col: 0.50
@@ -98,16 +138,19 @@ This is a key question AIRS + CrIS can start to answer
 [[./Figs_mei/Pdf/bt900_pdf_anom_highT_with_mei_index_v2_samemarker_but_2017.pdf]]
 
 #+LaTeX: \vspace{-1.5in}
+#+LaTeX: \footnotesize
 #+LaTeX: \small
-*** Right Graph
+*** 
 :PROPERTIES:
 :BEAMER_col: 0.50
 :BEAMER_env: block
 :END:
-Simple analysis, independent tests show stability, etc.
+- This appoach minimizes clouds (more is possible)
+- Provides simple analysis with high certainties
 
 
-* Differences and Similarities Between AIRS and CrIS
+
+* Differences and Similarities Between AIRS and CrIS Radiances
 
 ** Time Diffs
 #+ATTR_LATEX: :width 0.8\linewidth 
